@@ -10,11 +10,15 @@ def cli():
 
     parsed = podcastparser.parse(feedurl, urllib.request.urlopen(feedurl))
 
+    file = open("feed.xml", "w")
+    file.write(parsed)
+    file.close()
 
-@click.command()
+
+@cli.command()
 def play():
     click.echo("playing...")
 
-@click.command()
+@cli.command()
 def play():
     click.echo("pausing...")
